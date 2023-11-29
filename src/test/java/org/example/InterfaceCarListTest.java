@@ -11,7 +11,7 @@ public class InterfaceCarListTest {
 
     @Before
     public void setUp() throws Exception {
-        carList = new CarArrayList();
+        carList = new CarLinkedList();
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("Brand" + i, i));
         }
@@ -78,7 +78,7 @@ public class InterfaceCarListTest {
     }
 
     @Test
-    public void InsertInToLatPosition() {
+    public void InsertInToLastPosition() {
         Car car = new Car("BMW", 10);
         carList.add(car, 100);
         Car carFromList = carList.get(100);
