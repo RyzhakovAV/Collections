@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Iterator;
+
 public class CarHashSet implements InterfaceCarSet {
 
     private static final int INITIAL_CAPACITY = 16;
@@ -95,6 +97,37 @@ public class CarHashSet implements InterfaceCarSet {
             }
         }
         return false;
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
+            int index = 0;
+            int arrayIndex = 0;
+            Entry element;
+
+            @Override
+            public boolean hasNext() {
+                return index < size;
+            }
+
+            @Override
+            public Car next() {
+                while (array[arrayIndex] == null) {
+                    arrayIndex++;
+                }
+                if (element == null) {
+                    element = array[arrayIndex];
+                }
+                Car car = element.value;
+                element = element.next;
+                if (element == null) {
+                    arrayIndex++;
+                }
+                index++;
+                return car;
+            }
+        };
     }
 
     private void increaseArray() {
