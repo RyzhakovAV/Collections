@@ -1,11 +1,11 @@
 package org.example;
 
-public interface InterfaceCarList {
+public interface InterfaceCarList extends CarCollection {
     Car get(int index);
 
-    void add(Car car);
+    boolean add(Car car);
 
-    void add(Car car, int index);
+    boolean add(Car car, int index);
 
     boolean remove(Car car);
 
