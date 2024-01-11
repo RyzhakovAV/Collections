@@ -33,4 +33,8 @@ public class Car {
         return Objects.hash(brand, number);
     }
 
+    @Override
+    public String toString() {
+        return "Модель: " + brand + " номер: " + number;
+    }
 }
