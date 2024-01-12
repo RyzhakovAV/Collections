@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Iterator;
 
-public class CarLinkedList implements InterfaceCarList {
+public class CarLinkedList implements InterfaceCarList, CarQueue {
 
     private Node first = null;
     private Node last = null;
@@ -25,6 +25,22 @@ public class CarLinkedList implements InterfaceCarList {
         }
         size++;
         return true;
+    }
+
+    @Override
+    public Car peek() {
+        return size > 0 ? get(0) : null;
+    }
+
+    @Override
+    public Car poll() {
+        if (size > 0) {
+            Car car = get(0);
+            removeAt(0);
+            return car;
+        } else {
+            return null;
+        }
     }
 
     @Override
